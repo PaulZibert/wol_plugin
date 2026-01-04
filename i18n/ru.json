@@ -1,0 +1,21 @@
+{
+  "command_make_wol_link_name": "Сделать ссылку на онлайн библиотеку",
+  "notice_select_text": "Выделите текст",
+  "notice_failed_to_recognize_link": "Не удалось распознать ссылку",
+  "command_gemini_name": "Опознать библейский стих",
+  "gemini_request_prompt": "Напиши ссылку на библейский стих (напр. Бт 1:1), который больше всего подходит к следующей фразе (ответ короткий - только стих). Фраза: ",
+  "command_show_plan_name": "Показать план",
+  "notice_api_key_not_set": "API Key не задан",
+  "status_gemini_thinking": "⏳ Gemini is thinking…",
+  "status_gemini_done": "✅ Gemini done",
+  "notice_gemini_failed_to_respond": "Gemini не смог ответить",
+  "setting_gemini_api_key_name": "Gemini API Key",
+  "setting_gemini_api_key_desc": "Stored locally in Obsidian settings",
+  "setting_bible_index_name": "Bible Index",
+  "setting_bible_index_desc": "index of entry in plan",
+  "notice_bible_index_changed_prefix": "Bible Index changed (",
+  "setting_paste_date_name": "Paste Date",
+  "setting_paste_date_desc": "Paste date to Bible Plan",
+  "command_make_links_name": "Создать ссылки",
+  "command_parse_chapter_name": "Убрать лишнее в главе"
+}

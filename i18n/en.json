@@ -1,0 +1,21 @@
+{
+  "command_make_wol_link_name": "Make link to online library",
+  "notice_select_text": "Select text",
+  "notice_failed_to_recognize_link": "Failed to recognize link",
+  "command_gemini_name": "Identify Bible verse",
+  "gemini_request_prompt": "Write a link to the Bible verse (e.g., Gen 1:1) that best fits the following phrase (short answer - only the verse). Phrase: ",
+  "command_show_plan_name": "Show plan",
+  "notice_api_key_not_set": "API Key not set",
+  "status_gemini_thinking": "⏳ Gemini is thinking…",
+  "status_gemini_done": "✅ Gemini done",
+  "notice_gemini_failed_to_respond": "Gemini failed to respond",
+  "setting_gemini_api_key_name": "Gemini API Key",
+  "setting_gemini_api_key_desc": "Stored locally in Obsidian settings",
+  "setting_bible_index_name": "Bible Index",
+  "setting_bible_index_desc": "Index of entry in plan",
+  "notice_bible_index_changed_prefix": "Bible Index changed (",
+  "setting_paste_date_name": "Paste Date",
+  "setting_paste_date_desc": "Paste date to Bible Plan",
+  "command_make_links_name": "Create links",
+  "command_parse_chapter_name": "Remove superfluous in chapter"
+}

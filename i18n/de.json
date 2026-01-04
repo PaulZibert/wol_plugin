@@ -1,0 +1,21 @@
+{
+  "command_make_wol_link_name": "Link zur Online-Bibliothek erstellen",
+  "notice_select_text": "Text auswählen",
+  "notice_failed_to_recognize_link": "Link konnte nicht erkannt werden",
+  "command_gemini_name": "Bibelvers identifizieren",
+  "gemini_request_prompt": "Schreibe einen Link zum Bibelvers (z.B. 1 Mo 1:1), der am besten zu folgendem Satz passt (kurze Antwort - nur der Vers). Satz: ",
+  "command_show_plan_name": "Plan anzeigen",
+  "notice_api_key_not_set": "API-Schlüssel nicht festgelegt",
+  "status_gemini_thinking": "⏳ Gemini denkt nach…",
+  "status_gemini_done": "✅ Gemini fertig",
+  "notice_gemini_failed_to_respond": "Gemini konnte nicht antworten",
+  "setting_gemini_api_key_name": "Gemini API-Schlüssel",
+  "setting_gemini_api_key_desc": "Lokal in den Obsidian-Einstellungen gespeichert",
+  "setting_bible_index_name": "Bibelindex",
+  "setting_bible_index_desc": "Index des Eintrags im Plan",
+  "notice_bible_index_changed_prefix": "Bibelindex geändert (",
+  "setting_paste_date_name": "Datum einfügen",
+  "setting_paste_date_desc": "Datum zum Bibelplan einfügen",
+  "command_make_links_name": "Links erstellen",
+  "command_parse_chapter_name": "Überflüssiges im Kapitel entfernen"
+}

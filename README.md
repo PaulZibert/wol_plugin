@@ -1,94 +1,86 @@
-# Obsidian Sample Plugin
+# WolLinkPlugin - Your Ultimate Bible Study Companion for Obsidian
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/<your-github-username>/<your-repo-name>)
+![GitHub all releases](https://img.shields.io/github/downloads/<your-github-username>/<your-repo-name>/total)
+![GitHub last commit](https://img.shields.io/github/last-commit/<your-github-username>/<your-repo-name>)
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## Table of Contents
+- [About](#about)
+- [Features](#features)
+- [Installation](#installation)
+  - [Manual Installation](#manual-installation)
+- [Usage](#usage)
+- [Commands](#commands)
+- [Settings](#settings)
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+## About
 
-## First time developing plugins?
+WolLinkPlugin is an Obsidian plugin designed to enhance your Bible study and note-taking experience, particularly for users who frequently reference the Watchtower Online Library (wol.jw.org) and wish to leverage the power of Artificial Intelligence for verse identification. It streamlines the process of creating links to biblical texts and provides tools for intelligent text processing.
 
-Quick starting guide for new plugin devs:
+## Features
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+*   **Smart Wol.jw.org Link Generation**: Easily convert selected Bible references into direct links to wol.jw.org, supporting various reference formats (e.g., "Бт 1:1", "Бытие 1:1-5").
+*   **AI-Powered Bible Verse Identification**: Utilize Google Generative AI to identify the most relevant Bible verse from any selected text, making contextual verse lookup effortless.
+*   **Bible Reading Plan Integration**: Quickly insert your current Bible reading plan entry (text and corresponding wol.jw.org link) into your notes, with an option to include the current date.
+*   **Automatic Internal Link Creation**: Automatically transforms words in your notes into internal Obsidian links by matching them against existing Markdown file basenames in your vault, ensuring consistent cross-referencing.
+*   **Text Cleanup for Bible Chapters**: A dedicated command to clean up copied text from chapters, by escaping special characters and reformatting specific link patterns for better readability within Obsidian.
 
-## Releasing new releases
+## Installation
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+### From within Obsidian (Recommended)
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+1.  Open Obsidian **Settings**.
+2.  Go to **Community plugins**.
+3.  Click **Browse** and search for "WolLinkPlugin".
+4.  Click **Install**.
+5.  Once installed, enable the plugin in the **Community plugins** tab.
 
-## Adding your plugin to the community plugin list
+### Manual Installation
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+1.  Download the latest `main.js`, `manifest.json`, and `styles.css` (if present) from the [releases page](https://github.com/<your-github-username>/<your-repo-name>/releases).
+2.  Create a new folder named `wol-link-plugin` in your vault's `.obsidian/plugins/` directory.
+3.  Copy the downloaded files into this new folder.
+4.  Reload Obsidian.
+5.  Go to **Settings → Community plugins** and enable the plugin.
 
-## How to use
+## Usage
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+WolLinkPlugin integrates seamlessly into your Obsidian workflow through a set of powerful commands. Simply open the Command Palette (`Cmd/Ctrl + P`) and search for the commands listed below.
 
-## Manually installing the plugin
+## Commands
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+This plugin adds the following commands to Obsidian's command palette:
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint ./src/`
+*   **`WolLinkPlugin: Сделать ссылку на онлайн библиотеку`** (`make-wol-link`)
+    *   **Description**: Converts selected Bible references (e.g., "Бт 1:1", "Бытие 1:1-5") into markdown links pointing to the Watchtower Online Library (wol.jw.org).
+    *   **How to use**: Select a Bible reference in your editor and run this command.
 
-## Funding URL
+*   **`WolLinkPlugin: Опознать библейский стих`** (`gemini`)
+    *   **Description**: Uses Google Generative AI to identify the most fitting Bible verse for your selected text. Requires a configured Gemini API Key.
+    *   **How to use**: Select a passage of text and run this command. The identified verse will replace your selection.
 
-You can include funding URLs where people who use your plugin can financially support it.
+*   **`WolLinkPlugin: Показать план`** (`show-plan`)
+    *   **Description**: Inserts the current entry from your personalized Bible reading plan, including a link to wol.jw.org. Optionally adds the current date.
+    *   **How to use**: Run this command to insert the plan entry. The plugin automatically advances to the next entry.
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+*   **`WolLinkPlugin: Создать ссылки`** (`make-links`)
+    *   **Description**: Automatically scans your note for words that match existing Markdown file names in your vault's root and converts them into internal Obsidian links `[[filename|word]]`. Each file will be linked only once per note.
+    *   **How to use**: Run this command on your active note to create internal links.
 
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
+*   **`WolLinkPlugin: Убрать лишнее в главе`** (`parse`)
+    *   **Description**: Cleans up selected text, primarily designed for content copied from Bible chapters. It escapes single asterisks and reformats specific link patterns (e.g., `[1](...)` becomes `**1**`, `[+](...)` is removed).
+    *   **How to use**: Select text you wish to clean and run this command.
 
-If you have multiple URLs, you can also do:
+## Settings
 
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
+To configure WolLinkPlugin:
 
-## API Documentation
+1.  Open Obsidian **Settings**.
+2.  Navigate to **Community plugins** and find "WolLinkPlugin".
+3.  Click on the gear icon next to it or the plugin name to open its settings.
 
-See https://github.com/obsidianmd/obsidian-api
+Available settings:
+
+*   **Gemini API Key**: Your API key for accessing Google Generative AI services. This is required for the "Опознать библейский стих" command.
+*   **Bible Index**: Controls your progress through the integrated Bible reading plan. You can manually adjust this to start at a specific point.
+*   **Paste Date**: A toggle to include the current date automatically when inserting a Bible reading plan entry using the "Показать план" command.

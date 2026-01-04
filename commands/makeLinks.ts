@@ -1,9 +1,11 @@
-import type { Command } from "obsidian";
+import type { Command, App, Plugin } from "obsidian";
 import stringSimilarity from 'string-similarity';
+import { t } from "../src/i18n";
 
-export default {
+export default function createMakeLinksCommand(plugin:Plugin): Command {
+  return {
     id: 'make-links',
-    name: 'Создать ссылки',
+    name: t(plugin.app, 'command_make_links_name'),
     editorCallback: async (editor, view) => {
         const files = view.app.vault.getMarkdownFiles()
             .filter(f => f.parent?.isRoot())
@@ -33,7 +35,6 @@ export default {
             };
 
             const bestMatch = stringSimilarity.findBestMatch(word.toLowerCase(), files);
-            if (word.startsWith('Иего')) { console.log(bestMatch.bestMatch, word) }
             if (bestMatch.bestMatch.rating >= threshold) {
                 if (used.includes(bestMatch.bestMatch.target)) {
                     return word;
@@ -47,4 +48,5 @@ export default {
 
         doc.setValue(frontmatter + result);
     }
-} as Command
+  };
+}

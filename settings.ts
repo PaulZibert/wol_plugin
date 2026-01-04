@@ -1,6 +1,7 @@
 import { App, Notice, PluginSettingTab, Setting } from 'obsidian';
 import WolPlugin from './main';
 import { getActualBiblePlan } from 'utils.js';
+import { t } from './src/i18n';
 
 export interface Settings {
   geminiAPIKey: string;
@@ -26,8 +27,8 @@ export class SettingTab extends PluginSettingTab {
     containerEl.empty();
 
     new Setting(containerEl)
-      .setName('Gemini API Key')
-      .setDesc('Stored locally in Obsidian settings')
+      .setName(t(this.app, 'setting_gemini_api_key_name'))
+      .setDesc(t(this.app, 'setting_gemini_api_key_desc'))
       .addText(text =>
         text
           .setPlaceholder('AIza...')
@@ -39,8 +40,8 @@ export class SettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName('Bible Index')
-      .setDesc('index of entry in plan')
+      .setName(t(this.app, 'setting_bible_index_name'))
+      .setDesc(t(this.app, 'setting_bible_index_desc'))
       .addText(text => {
         text.inputEl.type = 'number';
         text.setPlaceholder('1')
@@ -49,15 +50,15 @@ export class SettingTab extends PluginSettingTab {
             const nvalue = Number(value);
             this.plugin.settings.bibleIndex = nvalue
             if(nvalue){
-              new Notice(`Bible Index changed (${getActualBiblePlan(nvalue)?.text})`);
+              new Notice(`${t(this.app, 'notice_bible_index_changed_prefix')}${getActualBiblePlan(nvalue)?.text})`);
               await this.plugin.saveSettings();
             }
           })
       })
 
     new Setting(containerEl)
-      .setName('Paste Date')
-      .setDesc('Paste date to Bible Plan')
+      .setName(t(this.app, 'setting_paste_date_name'))
+      .setDesc(t(this.app, 'setting_paste_date_desc'))
       .addToggle(toggle => {
         toggle
           .setValue(this.plugin.settings.pasteDate)
